@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    //Для русских символов
+    setlocale(LC_ALL, "Russian");
+    cout << "Привет, Мир!\n";
+    
+}
