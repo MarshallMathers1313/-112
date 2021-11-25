@@ -1,0 +1,121 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    //Синтаксис
+    //тип_данных имя;
+    int a;
+    a = 10;
+    cout << "a = " << a << "\n";
+
+    float b = 1.5;
+    cout << "b = " << b;
+
+}
+===========================================
+#include <iostream>
+using namespace std;
+int main()
+{
+    //Синтаксис
+    //тип_данных имя;
+    int a;
+    a = 10;
+    cout << "a = " << a << "\n";
+
+    a = 20;
+    cout << "a = " << a << "\n";
+
+    //Константная переменная
+    //const тип_данных имя;
+    const double PI = 3.14;
+    cout << "PI = " << PI << endl;
+}
+
+==============================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	int day_in_Year = 365;
+	int hour_in_Day = 24;
+	
+	int hour_in_Year;
+	hour_in_Year = day_in_Year * hour_in_Day;
+
+	cout << "Hour in Year: " << hour_in_Year << "\n";
+}
+=====================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	int discount = 15;
+	int count = 5;
+	float cost = 1200;
+
+	float price;
+	price = cost * count - ((cost * count) * (discount * 0.01));
+
+	cout << "All price: " << cost * count << "\n";
+	cout << "Price with discount: " << price;
+}
+
+========================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	int discount = 15;
+	int count = 5;
+	float cost = 1200;
+
+	float price;
+	price = cost * count - ((cost * count) * (discount / 100));
+
+	cout << "All price: " << cost * count << "\n";
+	cout << "Price with discount: " << price;
+
+	/*
+	price = count/(float)discount;
+	cout << "Price other: " << price << endl;
+	*/
+
+}
+
+=============================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	int age;
+	cout << "Input your age: ";
+	cin >> age;
+
+	cout << "Your age: " << age;
+}
+
+===============================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	int discount;
+	cout << "Input discount: ";
+	cin >> discount;
+	
+	int count;
+	cout << "Input count: ";
+	cin >> count;
+
+	float cost;
+	cout << "Input cost: ";
+	cin >> cost;
+
+	float price;
+	price = cost * count - ((cost * count) * (discount / 100.0));
+
+	cout << "All price: " << cost * count << "\n";
+	cout << "Price with discount: " << price;
+
+}
