@@ -1,0 +1,99 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//%
+	
+	//Ввод данных
+	int seconds;//7354 - > 2 : 2 : 34 
+	cout << "Input seconds: ";
+	cin >> seconds;
+
+	//Главная задача
+	int h1 = seconds / 3600 / 10;//0
+	int h2 = seconds / 3600 % 10;//2
+	int m1 = seconds % 3600 / 60 / 10;//0
+	int m2 = seconds % 3600 / 60 % 10;//2
+	int s1 = seconds % 3600 % 60 / 10;//3
+	int s2 = seconds % 3600 % 60 % 10;//4
+
+	cout << h1 << h2 << ":" << m1 << m2 << ":" << s1 << s2 << endl;
+}
+
+=======================================================================
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	float x = 5.43434;
+
+	cout << setprecision(3) <<fixed<< x << endl;
+}
+
+=====================================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Унарный оператор - (+) (-)
+	int a = -10;
+
+	cout << -a << endl;
+
+	//Бинарный оператор - (+), (-), (*), (/), (%)
+	int b = 10;
+	int c = 3;
+	cout << "b + c = " << b + c << endl;
+	cout << "b - c = " << b - c << endl;
+	cout << "b * c = " << b * c << endl;
+	cout << "b / c = " << b / c << endl;
+	cout << "b % c = " << b % c << endl;
+}
+
+=========================================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Инкремент префиксная, постфиксная
+	int i = 0;
+	cout << "i = " << i << endl;
+
+	cout << "i = " << i++ << endl;
+
+	//Декремент
+	//cout << "i = " << i-- << endl;
+
+	//префиксная
+	cout << "i = " << ++i << endl;
+}
+
+===========================================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Ввод данных
+	long long size;//гигабайт -> гигабайт * 8 * 1024 * 1024 * 1024
+	cout << "Input file size: ";
+	cin >> size;
+	
+	long long speed;//бит
+	cout << "Input speed internet: ";
+	cin >> speed;
+
+	int seconds = (size * 8 * 1024 * 1024 * 1024) / speed;
+
+	int h1 = seconds / 3600 / 10;
+	int h2 = seconds / 3600 % 10;
+	int m1 = seconds % 3600 / 60 / 10;
+	int m2 = seconds % 3600 / 60 % 10;
+	int s1 = seconds % 3600 % 60 / 10;
+	int s2 = seconds % 3600 % 60 % 10;
+
+	//Вывод
+	cout << h1 << h2 << ":" << m1 << m2 << ":" << s1 << s2;
+
+	return 0;
+}
