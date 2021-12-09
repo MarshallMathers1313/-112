@@ -1,0 +1,173 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Неявное преобразование
+	int a = 5.5;
+	cout << a << endl;
+
+	double b = a;//5.0
+	cout << b << endl;
+
+	int result = 15 / 100;//0
+	cout << result << endl;
+
+	//Явное преобразование
+	cout << (double)5 / 3 << endl;
+
+	int x = 10;
+	int y = 3;
+
+	cout <<"x / y = " << (double)x / y << endl;
+
+	return 0;
+}
+
+================================================
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a;
+	cout << "Input a: ";
+	cin >> a;
+
+	int b;
+	cout << "Input b: ";
+	cin >> b;
+
+	int c;
+	cout << "Input c: ";
+	cin >> c;
+
+	if (a == b && b == c && c == a)
+	{
+		cout << "They're equal\n";
+	}
+
+	else if (a == b || b == c || a == c)
+	{
+		cout << "Two equal\n";
+	}
+
+	if (a > b && a > c)//true && true -> true
+	{
+		cout << "First number\n";
+	}
+
+	if (b > a && b > c)
+	{
+		cout << "Second number\n";
+	}
+
+	if (c > a && c > b)
+	{
+		cout << "Third number\n";
+	}
+
+	
+
+	return 0;
+}
+
+=============================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a;
+	cout << "Input a: ";
+	cin >> a;
+
+	int b;
+	cout << "Input b: ";
+	cin >> b;
+
+	if (!(a == b))
+	{
+		cout << "False\n";
+	}
+
+	else
+	{
+		cout << "True\n";
+	}
+
+	return 0;
+}
+
+================================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Ru");
+	int a;
+	cout << "Введите число: ";
+	cin >> a;
+
+	if (a == 0)
+	{
+		cout << "Не правильное число\n";
+	}
+
+	else if (a % 2 == 0)
+	{
+		cout << "Четное число\n";
+	}
+
+	else
+	{
+		cout << "Нечетное число\n";
+	}
+
+	return 0;
+}
+
+==========================================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Ru");
+	int a;
+	cin >> a;
+
+	char symbol;
+	cin >> symbol;
+
+	int b;
+	cin >> b;
+
+	if (symbol == '+')
+	{
+		cout << a << " + " << b << " = " << a + b << endl;
+	}
+	else if (symbol == '-')
+	{
+		cout << a << " - " << b << " = " << a - b << endl;
+	}
+	else if (symbol == '*')
+	{
+		cout << a << " * " << b << " = " << a * b << endl;
+	}
+	else if (symbol == '/')
+	{
+		if (b != 0)
+		{
+			cout << a << " / " << b << " = " << a / b << endl;
+		}
+		else 
+		{
+			cout << "Don't devide zero!\n";
+		}
+		
+	}
+	else
+	{
+		cout << "Incorrect operation!\n";
+	}
+
+	return 0;
+}
