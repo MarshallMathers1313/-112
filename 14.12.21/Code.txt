@@ -1,0 +1,137 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    double a;
+    char sym;
+    double b;
+
+    cin >> a >> sym >> b;
+
+    //+ , -, *, /, #
+
+    /*if (sym == '+')
+    {
+        cout << a << " + " << b << " = " << a + b << endl;
+    }
+
+    else if (sym == '-')
+    {
+        cout << a << " - " << b << " = " << a - b << endl;
+    }
+
+    else if (sym == '*')
+    {
+        cout << a << " * " << b << " = " << a * b << endl;
+    }
+
+    else if (sym == '/')
+    {
+        if (b != 0)
+        {
+            cout << a << " / " << b << " = " << a / b << endl;
+        }
+        else
+        {
+            cout << "Can not devide zero!\n";
+        }
+    }
+
+    else
+    {
+        cout << "Incorrect operation\n";
+    }*/
+
+    switch (sym)
+    {
+    case '+':
+        cout << a << " + " << b << " = " << a + b << endl;
+        break;
+    case '-':
+        cout << a << " - " << b << " = " << a - b << endl;
+        break;
+    case '*':
+        cout << a << " * " << b << " = " << a * b << endl;
+        break;
+    case '/':
+        if (b != 0)
+        {
+            cout << a << " / " << b << " = " << a / b << endl;
+        }
+        break;
+    default:
+        cout << "Incorrect operation\n";
+        break;
+    }
+
+    return 0;
+}
+
+========================================================================
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    //enum
+    setlocale(LC_ALL, "Ru");
+
+    enum countries
+    {
+        USA = 1, FRANCE = 2, UKRAINE = 38, TURKEY = 50, RUSSIA = 7
+    };
+
+    int number;
+    cout << "Input number: ";
+    cin >> number;
+
+    switch (number)
+    {
+    case 1:
+        cout << "USA code: " << USA << endl;
+        break;
+    case 2:
+        cout << "France code: " << FRANCE << endl;
+        break;
+    case 3:
+        cout << "Turkey code: " << UKRAINE << endl;
+        break;
+    case 4:
+        cout << "Russia code: " << RUSSIA << endl;
+        break;
+    case 5:
+        cout << "Ukraine code: " << UKRAINE << endl;
+        break;
+    default:
+        cout << "Incorrect code: " << endl;
+        break;
+    }
+
+    return 0;
+}
+
+===========================================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Ru");
+
+    //while
+    int i = 1;
+
+    int end;
+    cout << "Input end number: ";
+    cin >> end;
+
+    while (i <= end)
+    {
+        cout << i << " ";
+        i++;
+    }
+
+    return 0;
+}
+
+
+
