@@ -1,0 +1,264 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Ru");  
+
+    //Ввод данных
+    int money;//10$
+    cout << "Input money: ";
+    cin >> money;
+
+    int ice;//3$
+    cout << "Input cost ice: ";
+    cin >> ice;
+
+    int count = 0;
+
+    while (money >= ice)
+    {
+        money -= ice;//money = money - ice
+        count++;
+    }
+
+    cout << "Count ice-cream: " << count << endl;
+
+    return 0;
+}
+
+=======================================================
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Ru");  
+
+    //Ввод данных
+    int begin;//10
+    cout << "Input first number: ";
+    cin >> begin;
+
+    int end;//20
+    cout << "Input second number: ";
+    cin >> end;
+
+    int sum = 0;
+
+    while (begin <= end)
+    {
+        sum += begin;// sum = sum + begin
+        begin++;
+    }
+
+    cout << "Sum: " << sum << endl;
+
+    return 0;
+}
+
+=================================================================
+#include <iostream>
+using namespace std;
+int main() 
+{
+    setlocale(LC_ALL, "Ru");
+    //Ввод даных
+    int beg;
+    cout << "Введите первое число: ";
+    cin >> beg;
+
+    int old = beg;
+
+    int end; 
+    cout << "Введите второе число: ";
+    cin >> end;
+
+    cout << "1 - Вывод всех чисел\n";
+    cout << "2 - Вывод четных чисел\n";
+    cout << "3 - Вывод нечетных чисел\n";
+    cout << "4 - Кратные 7\n";
+    cout << "0 - Выход\n";
+    cout << "Введите ваш выбор: ";
+    int choice;
+    cin >> choice;
+
+    while (choice != 0)
+    {
+        beg = old;
+        switch (choice)
+        {
+        case 1:
+            cout << "Вывод всех чисел: ";
+            while (beg <= end)
+            {
+                cout << beg << " ";
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 2:
+            cout << "Вывод четных чисел: ";
+            while (beg <= end)
+            {
+                if (beg % 2 == 0)
+                {
+                    cout << beg << " ";
+                }
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 3:
+            cout << "Вывод нечетных чисел: ";
+            while (beg <= end)
+            {
+                if (beg % 2 == 1)
+                {
+                    cout << beg << " ";
+                }
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 4:
+            cout << "Кратные семи\n";
+            while (beg <= end)
+            {
+                if (beg % 7 == 0)
+                {
+                    cout << beg << " ";
+                }
+                beg++;
+            }
+            cout << endl;
+            break;
+        default:
+            cout << "Что - то пошло не так!\n";
+            break;
+        }
+
+        cout << "1 - Вывод всех чисел\n";
+        cout << "2 - Вывод четных чисел\n";
+        cout << "3 - Вывод нечетных чисел\n";
+        cout << "4 - Кратные 7\n";
+        cout << "0 - Выход\n";
+        cout << "Введите ваш выбор: ";
+        cin >> choice;
+    }
+
+    cout << "Пока!\n";
+
+    return 0;
+}
+
+==============================================================
+#include <iostream>
+using namespace std;
+int main() 
+{
+    setlocale(LC_ALL, "Ru");
+    //Ввод даных
+    int beg;
+    cout << "Введите первое число: ";
+    cin >> beg;
+
+    int choice;
+    int old = beg;
+
+    int end; 
+    cout << "Введите второе число: ";
+    cin >> end;
+
+    do
+    {
+        cout << "1 - Вывод всех чисел\n";
+        cout << "2 - Вывод четных чисел\n";
+        cout << "3 - Вывод нечетных чисел\n";
+        cout << "4 - Кратные 7\n";
+        cout << "0 - Выход\n";
+        cout << "Введите ваш выбор: ";
+        cin >> choice;
+
+        beg = old;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "Вывод всех чисел: ";
+            while (beg <= end)
+            {
+                cout << beg << " ";
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 2:
+            cout << "Вывод четных чисел: ";
+            while (beg <= end)
+            {
+                if (beg % 2 == 0)
+                {
+                    cout << beg << " ";
+                }
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 3:
+            cout << "Вывод нечетных чисел: ";
+            while (beg <= end)
+            {
+                if (beg % 2 == 1)
+                {
+                    cout << beg << " ";
+                }
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 4:
+            cout << "Кратные семи\n";
+            while (beg <= end)
+            {
+                if (beg % 7 == 0)
+                {
+                    cout << beg << " ";
+                }
+                beg++;
+            }
+            cout << endl;
+            break;
+        case 0:
+            cout << "Пока\n";
+            break;
+        default:
+            cout << "Что - то пошло не так!\n";
+            break;
+        }
+    } while (choice != 0);
+
+
+    return 0;
+}
+
+===========================================================
+#include <iostream>
+#include <iomanip>//setprecision
+using namespace std;
+int main() 
+{
+    setlocale(LC_ALL, "Ru");
+
+    double result = 10/3.0;
+    cout << "Result: " << result << endl;
+
+    cout << "Result: " << setprecision(2) <<fixed<< result << endl;
+
+    return 0;
+}
+
+====================================================================
+https://www.cplusplus.com/reference/cmath/
+
+====================================================================
+https://www.cplusplus.com/reference/cmath/round/
