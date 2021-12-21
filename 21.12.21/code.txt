@@ -1,0 +1,144 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	/*int i = 1;
+
+	while (i <= 10)
+	{
+		cout << i << " ";
+		i++;
+	}
+	cout << endl;*/
+	setlocale(LC_ALL, "RU");
+
+	int end;
+	cout << "Input number: ";
+	cin >> end;//20
+
+	cout << "Четные: ";
+	for (int i = 1; i <= end; i++)
+	{
+		if (i % 2 == 0)
+		{
+			cout << i << " ";
+		}
+	}
+	cout << endl;
+
+	cout << "Нечетные: ";
+	for (int i = 1; i <= end; i++)
+	{
+		if (i % 2 != 0)
+		{
+			cout << i << " ";
+		}
+	}
+
+	return 0;
+}
+
+==================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	int a;
+
+	for (int i = 1; i <= 10; i++)
+	{
+		cin >> a;
+		if (a == 0)
+			break;//return code == exit(code)
+	}
+
+	cout << "Bye!\n";
+
+	return 0;
+}
+
+=========================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	//continue
+
+	for (int i = 1; i <= 10; i++)
+	{
+		if (i % 2 != 0)
+		{
+			continue;
+		}
+
+		cout << "Hello!\n";
+		cout << "BYE!\n";
+	}
+
+	return 0;
+}
+
+==========================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	int a, b, c;
+	cin >> a >> b;
+
+	do
+	{
+		cin >> c;
+	} while (c < a || c > b);
+
+	return 0;
+}
+
+======================================================
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	
+	
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (i > 4)
+			{
+				if (i >= j && i + j >= 9)
+				{
+					Sleep(500);
+					cout << "|###|";
+				}
+				else
+				{
+					cout << "     ";
+				}
+			}
+		}
+		if (i > 4)
+		{
+			cout << endl;
+		}
+	}
+	cout << endl;
+
+	for (int i = 0; i < 7; i++)//rows
+	{
+		for (int j = 0; j < 10; j++)//columns
+		{
+			cout << "|###|";
+			
+		}
+		cout << endl;
+	}
+
+	return 0;
+}
