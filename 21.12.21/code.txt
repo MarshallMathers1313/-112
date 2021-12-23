@@ -2,143 +2,178 @@
 using namespace std;
 int main()
 {
-	/*int i = 1;
-
-	while (i <= 10)
-	{
-		cout << i << " ";
-		i++;
-	}
-	cout << endl;*/
 	setlocale(LC_ALL, "RU");
 
-	int end;
-	cout << "Input number: ";
-	cin >> end;//20
+	//Тип_даных имя_массивы[размер];
+	int train[3] = { 3,  1, 4 };
 
-	cout << "Четные: ";
-	for (int i = 1; i <= end; i++)
-	{
-		if (i % 2 == 0)
-		{
-			cout << i << " ";
-		}
-	}
-	cout << endl;
+	//Вывод
+	/*cout << train[0] << endl;
+	cout << train[1] << endl;
+	cout << train[2] << endl;*/
 
-	cout << "Нечетные: ";
-	for (int i = 1; i <= end; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		if (i % 2 != 0)
-		{
-			cout << i << " ";
-		}
+		cout << i <<" элемент массива: " << train[i] << endl;
 	}
 
 	return 0;
 }
 
-==================================================
+===========================================================
+
 #include <iostream>
 using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "RU");
-	int a;
 
-	for (int i = 1; i <= 10; i++)
+	int marks[5];
+	
+	//Ввод данных
+	for (int i = 0; i < 5; i++)
 	{
-		cin >> a;
-		if (a == 0)
-			break;//return code == exit(code)
+		cout << "Введите оценку студента: ";
+		cin >> marks[i];
 	}
 
-	cout << "Bye!\n";
-
-	return 0;
-}
-
-=========================================================
-#include <iostream>
-using namespace std;
-int main()
-{
-	setlocale(LC_ALL, "RU");
-	//continue
-
-	for (int i = 1; i <= 10; i++)
+	//Сред. оценка
+	int sum = 0;
+	for (int i = 0; i < 5; i++)
 	{
-		if (i % 2 != 0)
-		{
-			continue;
-		}
+		//sum = sum + marks[i]
+		sum += marks[i];
+	}
+	
+	//Вывод
+	cout << "Средняя оценка студента: " << sum / 5.0 << endl;
 
-		cout << "Hello!\n";
-		cout << "BYE!\n";
+	//Изменить оценку студента
+	cout << "1 - Изменить оценку студента\n";
+	cout << "0 - Выход\n";
+	cout << "Введите ваш выбор: ";
+	int choice;
+	cin >> choice;
+	int index, mark;
+	
+	switch (choice)
+	{
+
+	case 1:
+		cout << "Введите номер оценки: ";
+		cin >> index;
+		cout << "На какую оценку хотите изменить: ";
+		cin >> mark;
+		marks[index - 1] = mark;
+		break;
+
+	case 0:
+		cout << "Пока!\n";
+		exit(-1);
+		break;
+
+	default:
+		cout << "Не правильная операция!!!\n";
+		break;
 	}
 
-	return 0;
-}
-
-==========================================================
-#include <iostream>
-using namespace std;
-int main()
-{
-	setlocale(LC_ALL, "RU");
-	int a, b, c;
-	cin >> a >> b;
-
-	do
+	//Средняя оценка
+	sum = 0;
+	for (int i = 0; i < 5; i++)
 	{
-		cin >> c;
-	} while (c < a || c > b);
+		//sum = sum + marks[i]
+		sum += marks[i];
+	}
+
+	//Вывод
+	cout << "Средняя оценка студента: " << sum / 5.0 << endl;
 
 	return 0;
 }
 
-======================================================
+====================================================================
 #include <iostream>
-#include <Windows.h>
+#include <ctime>
 using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "RU");
 	
-	
-	for (int i = 0; i < 10; i++)
+	const int size = 12;
+
+	int array[size];
+
+	srand(time(NULL));
+
+	//Ввод данных
+	for (int i = 0; i < size; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		cout << "Введите прибыль за " << i + 1 << " месяц: ";
+		cin >> array[i];
+	}
+
+	//Максимум и минимум
+	int max = array[0];
+	int min = array[0];
+	for (int i = 1; i < size; i++)
+	{
+		if (array[i] > max)
 		{
-			if (i > 4)
-			{
-				if (i >= j && i + j >= 9)
-				{
-					Sleep(500);
-					cout << "|###|";
-				}
-				else
-				{
-					cout << "     ";
-				}
-			}
+			max = array[i];
 		}
-		if (i > 4)
+
+		if (array[i] < min)
 		{
-			cout << endl;
+			min = array[i];
 		}
+	}
+
+	cout << "Max: " << max << endl;
+	cout << "Min: " << min << endl;
+
+	return 0;
+}
+
+===================================
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	
+	const int size = 12;
+
+	int array[size];
+
+	srand(time(NULL));
+
+	//Ввод данных
+	for (int i = 0; i < size; i++)
+	{
+		array[i] = rand() % 100;//0..99
+		cout << array[i] << " ";
 	}
 	cout << endl;
 
-	for (int i = 0; i < 7; i++)//rows
+	//Максимум и минимум
+	int max = array[0];
+	int min = array[0];
+	for (int i = 1; i < size; i++)
 	{
-		for (int j = 0; j < 10; j++)//columns
+		if (array[i] > max)
 		{
-			cout << "|###|";
-			
+			max = array[i];
 		}
-		cout << endl;
+
+		if (array[i] < min)
+		{
+			min = array[i];
+		}
 	}
+
+	cout << "Max: " << max << endl;
+	cout << "Min: " << min << endl;
 
 	return 0;
 }
