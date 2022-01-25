@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//тип_данных имя[rows][colums];
+	int array[3][4] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
+
+	//Ввод данных
+	srand(time(NULL));
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			array[i][j] = rand() % 20;
+		}
+	}
+
+	//Вывод данных
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			cout << array[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
+	int max = array[0][0];
+	int min = array[0][0];
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if (max < array[i][j])
+				max = array[i][j];
+
+			if (min > array[i][j])
+				min = array[i][j];
+		}
+	}
+
+	cout << "Min element in array: " << min << endl;
+	cout << "Max element in array: " << max << endl;
+
+
+	return 0;
+}
+
+==============================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	const int rows = 3;
+	const int colums = 4;
+	
+	//Создание двумерного массива
+	int array[rows][colums];
+
+	//Заполнения массива и сумма строк
+	srand(time(NULL));
+	for (int i = 0; i < rows; i++)
+	{
+		int sum = 0;
+		for (int j = 0; j < colums; j++)
+		{
+			array[i][j] = rand() % 10;//0..9
+			cout << array[i][j] << "\t";
+			sum += array[i][j];
+		}
+		cout <<"| " << sum << endl;
+	}
+
+	cout << "-------------------------------------\n";
+
+	//Сумма столбцов
+	int total = 0;
+	for (int j = 0; j < colums; j++)
+	{
+		int sum = 0;
+		for (int i = 0; i < rows; i++)//j = 0;
+		{
+			sum += array[i][j];
+		}
+		cout << sum << "\t";
+		total += sum;
+	}
+	cout << "| " << total << endl;
+
+	return 0;
+}
