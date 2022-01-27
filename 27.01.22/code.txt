@@ -1,0 +1,144 @@
+#include <iostream>
+using namespace std;
+
+//тип имя_функции(параметры){...}
+void hello()
+{
+	cout << "Hello World!\n";
+}
+
+int main()
+{
+	//Вызов функции
+	hello();
+
+	//...
+	//...
+	hello();
+
+	return 0;
+}
+
+=============================================
+#include <iostream>
+using namespace std;
+
+//тип имя_функции(параметры){...}
+void sum(int x, double y, int z)
+{
+	cout << "Sum: " << x + y + z << endl;
+}
+
+int main()
+{
+	//Локальные переменные
+	int a = 5, b = 10;
+
+	sum(5.5, 4.4, 3.3);
+
+	return 0;
+}
+================================================
+#include <iostream>
+using namespace std;
+
+//тип имя_функции(параметры){...}
+int plus_one(int i)
+{
+	i++;//1
+	cout << "i(f) = " << i << endl;
+	return i;//1
+}
+
+int sum(int a, int b)
+{
+	return a + b;
+}
+
+int main()
+{
+	//Локальные переменные
+	int i = 0;
+	cout << "i(m) = " << i << endl;
+
+	i = plus_one(i);
+
+	cout << "i(m) = " << i << endl;
+
+	int _sum = sum(5, 10);
+	cout << "Sum(f): " << _sum << endl;
+	cout << "Sum(f): " << sum(5, 10) << endl;
+
+	return 0;
+}
+==========================================================
+#include <iostream>
+using namespace std;
+
+//Заполнения
+void input(int array[], const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		array[i] = rand() % 20;
+	}
+}
+
+//Вывод
+void output(int array[], const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << array[i] << "\t";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	srand(time(NULL));
+	int array[5];
+	input(array, 5);
+	output(array, 5);
+
+	int array2[10];
+	input(array2, 10);
+	output(array2, 10);
+
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+void draw(const int N, const int M)
+{
+	for (int i = 0; i < N; i++)//Строки
+	{
+		for (int j = 0; j < M; j++)//Колонки
+		{
+			if (i == 0 || i == N - 1 || j == 0 || j == M - 1)
+			{
+				cout << "* ";
+			}
+			else
+			{
+				cout << "  ";
+			}
+		}
+		cout << endl;
+	}
+}
+
+int main()
+{
+	int n, k;
+	cin >> n >> k;
+
+	draw(n, k);
+
+	return 0;
+}
+
+
+
