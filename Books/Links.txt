@@ -1,1 +1,17 @@
 https://www.ozon.ru/product/grokaem-algoritmy-illyustrirovannoe-posobie-dlya-programmistov-i-lyubopytstvuyushchih-139296295/?sh=PdfwRQAAAA
+https://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996
+ENGLISH!!!
+C++ + Cisco C++ 
+OOP + STL + Cisco C++
+Books:
+	1. C++ Primer Fifth Edition (1340)
+	2. Algorithm (Грокаем алгоритмы)
+	3. Effictive STL
+
+Multithreading
+	1.C++ concurrency in action + Cisco Advance C++
+	2. Operation System Concepts, 9th Edition
+	3. Задача философов	
+
+Networking
+	Computer Networking A Top-Down Approach
