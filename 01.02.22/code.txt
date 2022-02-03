@@ -1,241 +1,166 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
 
-//Глобальная переменная
-int y = 10;
-
-void foo()
+//Рукурсия - функция вызывает сама себя
+int fibonacci(int n)//5
 {
-	//Локальная переменная
-	int x;
-
-	//Глобальная переменная
-	y++;
-
-	cout << y << endl;
+	if (n == 0)
+		return 0;
+	else if (n == 1)
+		return 1;
+	else
+		return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 int main()
 {
-	//Локальная переменная
-	int a;
+	auto start = chrono::steady_clock::now();//5
+	cout << fibonacci(50) << endl;
+	auto stop = chrono::steady_clock::now();//15
 
-	foo();
+	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(stop - start).count() / 1000.0  << "s." << endl;
+	/*int sum0 = 0, sum1 = 1;
+	unsigned long total = 0;//5
 
-	//Глобальная переменная
-	y++;
+	for (int i = 1; i < 50; i++)
+	{
+		total = sum0 + sum1;
+		sum0 = sum1;
+		sum1 = total;
+	}
 
-	cout << y << endl;
+	cout << total << endl;*/
+	return 0;
+}
+
+========================================
+#include <iostream>
+#include <chrono>
+using namespace std;
+
+double _pow(double x, double y)//x - число, y - степень
+{
+	if (y == 0)
+		return 1;
+	else
+		return x * _pow(x, y - 1);
+}
+
+int main()
+{
+	cout << _pow(0.5, 3);//5^3 = 125
+	return 0;
+}
+
+==========================================
+#include <iostream>
+#include <chrono>
+using namespace std;
+
+double _pow(double x, double y)//x - число, y - степень
+{
+	return (y == 0) ? 1 : (x * _pow(x, y - 1));
+}
+
+int main()
+{
+	cout << _pow(0.5, 3);//5^3 = 125
+	return 0;
+}
+
+======================================
+#include <iostream>
+using namespace std;
+
+int _sum(int a, int b)
+{
+	if (a > b)
+		swap(a, b);
+	//if (a == b)
+	//	return b;
+	//else
+	//	return a + _sum(a + 1, b);//15
+	return (a == b) ? b : (a + _sum(a + 1, b));
+}
+
+int main()
+{
+	cout << _sum(5, 1);
 
 	return 0;
 }
 
-==============================
+====================================================
+#include <iostream>
+using namespace std;
+int main()
+{
+	//& - взятие адреса
+	int a = 5;
+
+	//Создание указателя
+	int* ptr;
+	ptr = &a;//F0123F
+
+	cout << "ptr(address): " << ptr << endl;
+	cout << "&a: " << &a << endl;
+	cout << "*ptr: " << *ptr << endl;
+	cout << "a: " << a << endl;
+
+	*ptr = 10;
+	cout << "*ptr: " << *ptr << endl;
+	cout << "a: " << a << endl;
+
+	return 0;
+}
+
+=================================================
 #include <iostream>
 using namespace std;
 
-
-//Static переменная
-void start()
+void _swap(int* a, int* b)//*a -> a, *b -> b
 {
-	static int a = 0;
-	a++;
-	cout << "Call: " << a << endl;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 int main()
+{
+	int a = 10, b = 5;
+	cout << "a = " << a << "\t b = " << b << endl;
+	_swap(&a, &b);
+	cout << "a = " << a << "\t b = " << b << endl;
+
+	return 0;
+}
+
+==================================================
+#include <iostream>
+using namespace std;
+
+void input(int* array)//F0
 {
 	for (int i = 0; i < 5; i++)
-		start();
-
-	return 0;
-}
-
-====================================
-#include <iostream>
-using namespace std;
-
-//Параметры по умольчанию
-int sum(int a = 0, int b = 0)
-{
-	return a + b;
+		array[i] = 1;
 }
 
 int main()
 {
-	//БД
-	cout << sum();
-	return 0;
-}
+	int array[5] = { 1,2,3,4,5 };//F0
 
-=======================================
-#include <iostream>
-using namespace std;
-
-//Перегрузка функции
-double sum(double a, double b)
-{
-	cout << "1" << endl;
-	return a + b;
-}
-
-string sum(string a, string b)
-{
-	return a + b;
-}
-
-double sum(double a, int b)
-{
-	cout << "3" << endl;
-	return a + b;
-}
-
-
-int main()
-{
-	int a = 10;
-	int b = 20;
-
-	cout << sum(a, b) << endl;
-
-	double x = 20.3;
-	double y = 25.5;
-	cout << sum(x, y) << endl;
-
-	string str1 = "Hello ";
-	string str2 = "World!";
-
-	cout << sum(str1, str2) << endl;
-
-	cout << sum(5, 5.5);
-
-	return 0;
-}
-
-=======================================
-#include <iostream>
-using namespace std;
-
-//Шаблоны функции
-template <typename T1, typename T2>
-T1 sum(T1 a, T2 b)
-{
-	return a + b;
-}
-
-template <typename T1, typename T2>
-T1 _max(T1 a, T2 b)
-{
-	return a > b ? a : b;//A(65) < b(98)
-}
-
-int main()
-{
-	cout << sum(1, 2.5) << endl;
-	cout << sum(2.2, 3.3) << endl;
-
-	string str1 = "A";
-	string str2 = "b";
-	cout << sum(str1, str2) << endl;
-
-	cout << _max(str1, str2) << endl;
-
-	return 0;
-}
-
-==============================================
-#include <iostream>
-#include <Windows.h>
-using namespace std;
-
-int main()
-{
-	//Для русских символов
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-
-	string x;
-	cin >> x;
-	cout << x << endl;
-
-	/*for (int i = 0; i < 255; i++)
+	for (int i = 0; i < 5; i++)//4
 	{
-		cout << i << " - " << (char)i<< endl;
-	}*/
-
-	return 0;
-}
-
-===================================================
-#include <iostream>
-using namespace std;
-
-void menu()
-{
-	cout << "1 - Descending\n";
-	cout << "0 - Ascending\n";
-	cout << "Input your choice: ";
-}
-
-template <typename T>
-void input(T array[], const int Size)
-{
-	for (int i = 0; i < Size; i++)
-	{
-		//cin >> array[i];
-		array[i] = rand() % 20;
-	}
-}
-
-template <typename T>
-void output(T array[], const int Size)
-{
-	cout << "Output array: ";
-	for (int i = 0; i < Size; i++)
-	{
-		cout << array[i] << " ";
+		cout << (array + i) << " ";//F0 + 4
 	}
 	cout << endl;
-}
 
-template <typename T>
-void _sort(T array[], const int Size, bool x)
-{
-	for (int i = 0; i < Size; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		for (int j = i + 1; j < Size; j++)
-		{
-			if (x)
-			{
-				if (array[i] < array[j])
-					swap(array[i], array[j]);
-			}
-			else
-			{
-				if (array[i] > array[j])
-					swap(array[i], array[j]);
-			}
-		}
+		cout << array[i] << " ";//*(array + i)
 	}
-}
+	cout << endl;
 
-int main()
-{
-	const int Size = 10;
-	int array[Size];
-
-	//Заполнение массива
-	input(array, Size);
-	//Вывод массива
-	output(array, Size);
-
-	//Выводим меню
-	menu();
-	bool x;
-	cin >> x;
-
-	//Сортировка по выбору
-	_sort(array, Size, x);
-	//Вывод массива
-	output(array, Size);
+	return 0;
 }
